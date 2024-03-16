@@ -54,6 +54,7 @@ endif()
 
 
 target_link_libraries(qt_front PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(qt_front PRIVATE Qt6::Network)
 
 
 

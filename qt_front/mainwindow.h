@@ -6,6 +6,7 @@
 #include <QVector>
 #include <QDateTime>
 #include "conversation.h"
+#include <QTcpSocket>
 
 
 QT_BEGIN_NAMESPACE
@@ -22,6 +23,7 @@ public:
     int convIdGenerator = 0;
 
 private:
+    QTcpSocket *socket;
     int clientId;
     Conversation currentConv;
     QVector<Conversation> conversationList;
@@ -34,6 +36,8 @@ public:
 
 public slots:
     //public slots permet d'appeler ces methodes dans la fonction connect de Qt
+    void onConnected();
+    void onReadyRead();
     void createNewConversation();
     void buildConversation(Conversation conversation);
     void openConversation(int idConv);

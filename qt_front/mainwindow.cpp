@@ -3,13 +3,12 @@
 #include <QFile>
 #include "conversation.h"
 #include "message.h"
-
+#include <QTcpSocket>
 
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
-    ,currentConv(0, 1001, 1002, "Home", QVector<Message>())
 {
     ui->setupUi(this);
 
@@ -23,8 +22,6 @@ MainWindow::MainWindow(QWidget *parent)
     ui->addConvName->clear();
     ui->addConvName->setPlaceholderText("Saisir nom conversation");
 
-
-
     // Connecter le signal clicked() du bouton "+" au slot createConversation()
     connect(ui->addConvBtn, &QPushButton::clicked, this, &MainWindow::createNewConversation);
 
@@ -37,9 +34,15 @@ MainWindow::MainWindow(QWidget *parent)
 
 
 
+    // Demander un ClientId libre au serveur.
 
+    socket = new QTcpSocket(this);
+    connect(socket, &QTcpSocket::connected, this, &MainWindow::onConnected);
+    connect(socket, &QTcpSocket::readyRead, this, &MainWindow::onReadyRead);
 
+    socket->connectToHost("127.0.0.1", 8080); //remplacer par l'adress IP du serveur et un port propre à chaque utilisateur
 
+    currentConv = Conversation(0, 1001, 1002, "Home", QVector<Message>());
 
 }
 
@@ -47,6 +50,29 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+void MainWindow::onConnected() {
+    qDebug() << "Connecté au serveur.";
+
+    // Lire l'identifiant du client depuis le serveur
+    int clientId;
+    socket->read(reinterpret_cast<char*>(&clientId), sizeof(clientId));
+    qDebug() << "Identifiant du client : " << clientId;
+
+    // Envoyer des données au serveur
+    QByteArray data = "Bonjour serveur";
+    socket->write(data);
+}
+
+
+
+void MainWindow::onReadyRead() {
+    QByteArray data = socket->readAll();
+    qDebug() << "Message du serveur :" << data;
+
+}
+
+
 
 Conversation MainWindow::getCurrentConv()
 {

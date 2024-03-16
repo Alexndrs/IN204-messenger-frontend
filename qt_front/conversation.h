@@ -19,6 +19,7 @@ public:
 
 public:
     // Constructeur prenant tous les paramètres
+    Conversation();
     Conversation(int idConv, int idFirstPers, int idSecPers, QString convName, QVector<Message> messages);
 
     QString getName();

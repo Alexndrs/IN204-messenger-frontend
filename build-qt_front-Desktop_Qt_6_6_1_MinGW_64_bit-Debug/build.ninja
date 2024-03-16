@@ -50,42 +50,42 @@ cmake_ninja_workdir = C$:/Users/alex/Desktop/Cours/2eme$ annee/projet$ IN204/IN2
 build cmake_object_order_depends_target_qt_front: phony || qt_front_autogen qt_front_autogen/mocs_compilation.cpp qt_front_autogen/timestamp qt_front_autogen_timestamp_deps
 
 build CMakeFiles/qt_front.dir/qt_front_autogen/mocs_compilation.cpp.obj: CXX_COMPILER__qt_front_unscanned_Debug C$:/Users/alex/Desktop/Cours/2eme$ annee/projet$ IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/mocs_compilation.cpp || cmake_object_order_depends_target_qt_front
-  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\qt_front.dir\qt_front_autogen\mocs_compilation.cpp.obj.d
   FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
-  INCLUDES = -I"C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/include" -isystem C:/Qt/6.6.1/mingw_64/include/QtCore -isystem C:/Qt/6.6.1/mingw_64/include -isystem C:/Qt/6.6.1/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.6.1/mingw_64/include/QtWidgets -isystem C:/Qt/6.6.1/mingw_64/include/QtGui
+  INCLUDES = -I"C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/include" -isystem C:/Qt/6.6.1/mingw_64/include/QtCore -isystem C:/Qt/6.6.1/mingw_64/include -isystem C:/Qt/6.6.1/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.6.1/mingw_64/include/QtWidgets -isystem C:/Qt/6.6.1/mingw_64/include/QtGui -isystem C:/Qt/6.6.1/mingw_64/include/QtNetwork
   OBJECT_DIR = CMakeFiles\qt_front.dir
   OBJECT_FILE_DIR = CMakeFiles\qt_front.dir\qt_front_autogen
 
 build CMakeFiles/qt_front.dir/main.cpp.obj: CXX_COMPILER__qt_front_unscanned_Debug C$:/Users/alex/Desktop/Cours/2eme$ annee/projet$ IN204/IN204-messenger-frontend/qt_front/main.cpp || cmake_object_order_depends_target_qt_front
-  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\qt_front.dir\main.cpp.obj.d
   FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
-  INCLUDES = -I"C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/include" -isystem C:/Qt/6.6.1/mingw_64/include/QtCore -isystem C:/Qt/6.6.1/mingw_64/include -isystem C:/Qt/6.6.1/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.6.1/mingw_64/include/QtWidgets -isystem C:/Qt/6.6.1/mingw_64/include/QtGui
+  INCLUDES = -I"C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/include" -isystem C:/Qt/6.6.1/mingw_64/include/QtCore -isystem C:/Qt/6.6.1/mingw_64/include -isystem C:/Qt/6.6.1/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.6.1/mingw_64/include/QtWidgets -isystem C:/Qt/6.6.1/mingw_64/include/QtGui -isystem C:/Qt/6.6.1/mingw_64/include/QtNetwork
   OBJECT_DIR = CMakeFiles\qt_front.dir
   OBJECT_FILE_DIR = CMakeFiles\qt_front.dir
 
 build CMakeFiles/qt_front.dir/mainwindow.cpp.obj: CXX_COMPILER__qt_front_unscanned_Debug C$:/Users/alex/Desktop/Cours/2eme$ annee/projet$ IN204/IN204-messenger-frontend/qt_front/mainwindow.cpp || cmake_object_order_depends_target_qt_front
-  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\qt_front.dir\mainwindow.cpp.obj.d
   FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
-  INCLUDES = -I"C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/include" -isystem C:/Qt/6.6.1/mingw_64/include/QtCore -isystem C:/Qt/6.6.1/mingw_64/include -isystem C:/Qt/6.6.1/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.6.1/mingw_64/include/QtWidgets -isystem C:/Qt/6.6.1/mingw_64/include/QtGui
+  INCLUDES = -I"C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/include" -isystem C:/Qt/6.6.1/mingw_64/include/QtCore -isystem C:/Qt/6.6.1/mingw_64/include -isystem C:/Qt/6.6.1/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.6.1/mingw_64/include/QtWidgets -isystem C:/Qt/6.6.1/mingw_64/include/QtGui -isystem C:/Qt/6.6.1/mingw_64/include/QtNetwork
   OBJECT_DIR = CMakeFiles\qt_front.dir
   OBJECT_FILE_DIR = CMakeFiles\qt_front.dir
 
 build CMakeFiles/qt_front.dir/message.cpp.obj: CXX_COMPILER__qt_front_unscanned_Debug C$:/Users/alex/Desktop/Cours/2eme$ annee/projet$ IN204/IN204-messenger-frontend/qt_front/message.cpp || cmake_object_order_depends_target_qt_front
-  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\qt_front.dir\message.cpp.obj.d
   FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
-  INCLUDES = -I"C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/include" -isystem C:/Qt/6.6.1/mingw_64/include/QtCore -isystem C:/Qt/6.6.1/mingw_64/include -isystem C:/Qt/6.6.1/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.6.1/mingw_64/include/QtWidgets -isystem C:/Qt/6.6.1/mingw_64/include/QtGui
+  INCLUDES = -I"C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/include" -isystem C:/Qt/6.6.1/mingw_64/include/QtCore -isystem C:/Qt/6.6.1/mingw_64/include -isystem C:/Qt/6.6.1/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.6.1/mingw_64/include/QtWidgets -isystem C:/Qt/6.6.1/mingw_64/include/QtGui -isystem C:/Qt/6.6.1/mingw_64/include/QtNetwork
   OBJECT_DIR = CMakeFiles\qt_front.dir
   OBJECT_FILE_DIR = CMakeFiles\qt_front.dir
 
 build CMakeFiles/qt_front.dir/conversation.cpp.obj: CXX_COMPILER__qt_front_unscanned_Debug C$:/Users/alex/Desktop/Cours/2eme$ annee/projet$ IN204/IN204-messenger-frontend/qt_front/conversation.cpp || cmake_object_order_depends_target_qt_front
-  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\qt_front.dir\conversation.cpp.obj.d
   FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
-  INCLUDES = -I"C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/include" -isystem C:/Qt/6.6.1/mingw_64/include/QtCore -isystem C:/Qt/6.6.1/mingw_64/include -isystem C:/Qt/6.6.1/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.6.1/mingw_64/include/QtWidgets -isystem C:/Qt/6.6.1/mingw_64/include/QtGui
+  INCLUDES = -I"C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/include" -isystem C:/Qt/6.6.1/mingw_64/include/QtCore -isystem C:/Qt/6.6.1/mingw_64/include -isystem C:/Qt/6.6.1/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.6.1/mingw_64/include/QtWidgets -isystem C:/Qt/6.6.1/mingw_64/include/QtGui -isystem C:/Qt/6.6.1/mingw_64/include/QtNetwork
   OBJECT_DIR = CMakeFiles\qt_front.dir
   OBJECT_FILE_DIR = CMakeFiles\qt_front.dir
 
@@ -97,10 +97,10 @@ build CMakeFiles/qt_front.dir/conversation.cpp.obj: CXX_COMPILER__qt_front_unsca
 #############################################
 # Link the executable qt_front.exe
 
-build qt_front.exe: CXX_EXECUTABLE_LINKER__qt_front_Debug CMakeFiles/qt_front.dir/qt_front_autogen/mocs_compilation.cpp.obj CMakeFiles/qt_front.dir/main.cpp.obj CMakeFiles/qt_front.dir/mainwindow.cpp.obj CMakeFiles/qt_front.dir/message.cpp.obj CMakeFiles/qt_front.dir/conversation.cpp.obj | C$:/Qt/6.6.1/mingw_64/lib/libQt6Widgets.a C$:/Qt/6.6.1/mingw_64/lib/libQt6Gui.a C$:/Qt/6.6.1/mingw_64/lib/libQt6Core.a C$:/Qt/6.6.1/mingw_64/lib/libQt6EntryPoint.a || qt_front_autogen qt_front_autogen_timestamp_deps
+build qt_front.exe: CXX_EXECUTABLE_LINKER__qt_front_Debug CMakeFiles/qt_front.dir/qt_front_autogen/mocs_compilation.cpp.obj CMakeFiles/qt_front.dir/main.cpp.obj CMakeFiles/qt_front.dir/mainwindow.cpp.obj CMakeFiles/qt_front.dir/message.cpp.obj CMakeFiles/qt_front.dir/conversation.cpp.obj | C$:/Qt/6.6.1/mingw_64/lib/libQt6Widgets.a C$:/Qt/6.6.1/mingw_64/lib/libQt6Network.a C$:/Qt/6.6.1/mingw_64/lib/libQt6Gui.a C$:/Qt/6.6.1/mingw_64/lib/libQt6Core.a C$:/Qt/6.6.1/mingw_64/lib/libQt6EntryPoint.a || qt_front_autogen qt_front_autogen_timestamp_deps
   FLAGS = -DQT_QML_DEBUG -g
   LINK_FLAGS = -mwindows
-  LINK_LIBRARIES = C:/Qt/6.6.1/mingw_64/lib/libQt6Widgets.a  C:/Qt/6.6.1/mingw_64/lib/libQt6Gui.a  C:/Qt/6.6.1/mingw_64/lib/libQt6Core.a  -lmpr  -luserenv  -lmingw32  C:/Qt/6.6.1/mingw_64/lib/libQt6EntryPoint.a  -lshell32  -ld3d11  -ldxgi  -ldxguid  -ld3d12  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  LINK_LIBRARIES = C:/Qt/6.6.1/mingw_64/lib/libQt6Widgets.a  C:/Qt/6.6.1/mingw_64/lib/libQt6Network.a  C:/Qt/6.6.1/mingw_64/lib/libQt6Gui.a  -ld3d11  -ldxgi  -ldxguid  -ld3d12  C:/Qt/6.6.1/mingw_64/lib/libQt6Core.a  -lmpr  -luserenv  -lmingw32  C:/Qt/6.6.1/mingw_64/lib/libQt6EntryPoint.a  -lshell32  -lws2_32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\qt_front.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
@@ -200,7 +200,7 @@ build qt_front_autogen/timestamp qt_front_autogen/mocs_compilation.cpp | ${cmake
 #############################################
 # Phony custom command for CMakeFiles\qt_front_autogen_timestamp_deps
 
-build CMakeFiles/qt_front_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/qt_front_autogen_timestamp_deps: phony C$:/Qt/6.6.1/mingw_64/./bin/moc.exe C$:/Qt/6.6.1/mingw_64/./bin/uic.exe C$:/Qt/6.6.1/mingw_64/lib/libQt6Widgets.a C$:/Qt/6.6.1/mingw_64/lib/libQt6Core.a
+build CMakeFiles/qt_front_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/qt_front_autogen_timestamp_deps: phony C$:/Qt/6.6.1/mingw_64/./bin/uic.exe C$:/Qt/6.6.1/mingw_64/./bin/moc.exe C$:/Qt/6.6.1/mingw_64/lib/libQt6Core.a C$:/Qt/6.6.1/mingw_64/lib/libQt6Network.a C$:/Qt/6.6.1/mingw_64/lib/libQt6Widgets.a
 
 
 #############################################

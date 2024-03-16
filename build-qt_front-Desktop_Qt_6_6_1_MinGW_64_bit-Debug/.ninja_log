@@ -1,35 +1,22 @@
 # ninja log v5
-21	271	7293804050057648	qt_front_autogen/timestamp	6e3a096ecaadc7a
-21	271	7293804050057648	qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
-21	271	7293804050057648	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/timestamp	6e3a096ecaadc7a
-21	271	7293804050057648	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
-607	3066	7293783626328365	CMakeFiles/qt_front.dir/main.cpp.obj	5d738ff1213e113f
-604	2887	7293783624552815	CMakeFiles/qt_front.dir/qt_front_autogen/mocs_compilation.cpp.obj	c3a55637bafe409a
-294	4012	7293804087594756	CMakeFiles/qt_front.dir/mainwindow.cpp.obj	c0f5fcedc23ae1c7
-4012	4386	7293804091280730	qt_front.exe	d9b6b520d09ac065
+21	268	7323029321188529	qt_front_autogen/timestamp	6e3a096ecaadc7a
+21	268	7323029321188529	qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
+21	268	7323029321188529	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/timestamp	6e3a096ecaadc7a
+21	268	7323029321188529	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
+986	5270	7309288320072838	CMakeFiles/qt_front.dir/main.cpp.obj	5d738ff1213e113f
+991	5160	7309288318967644	CMakeFiles/qt_front.dir/qt_front_autogen/mocs_compilation.cpp.obj	c3a55637bafe409a
+292	4216	7323029360673959	CMakeFiles/qt_front.dir/mainwindow.cpp.obj	c0f5fcedc23ae1c7
+4216	4987	7323029368355175	qt_front.exe	d9b6b520d09ac065
 1158	4629	7293755473356377	CMakeFiles/qt_front.dir/message.cpp.obj	bcb32009501591f2
-611	2652	7293783622197112	CMakeFiles/qt_front.dir/conversation.cpp.obj	6343f01bad19b97f
-21	281	7293804903177488	qt_front_autogen/timestamp	6e3a096ecaadc7a
-21	281	7293804903177488	qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
-21	281	7293804903177488	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/timestamp	6e3a096ecaadc7a
-21	281	7293804903177488	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
-304	4213	7293804942491113	CMakeFiles/qt_front.dir/mainwindow.cpp.obj	c0f5fcedc23ae1c7
-4213	4599	7293804946312975	qt_front.exe	d9b6b520d09ac065
-11	143	7293808887254956	qt_front_autogen/timestamp	6e3a096ecaadc7a
-11	143	7293808887254956	qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
-11	143	7293808887254956	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/timestamp	6e3a096ecaadc7a
-11	143	7293808887254956	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
-157	2532	7293808911129350	CMakeFiles/qt_front.dir/mainwindow.cpp.obj	c0f5fcedc23ae1c7
-2533	2857	7293808914329763	qt_front.exe	d9b6b520d09ac065
-21	269	7293810147346404	qt_front_autogen/timestamp	6e3a096ecaadc7a
-21	269	7293810147346404	qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
-21	269	7293810147346404	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/timestamp	6e3a096ecaadc7a
-21	269	7293810147346404	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
-292	3426	7293810178962097	CMakeFiles/qt_front.dir/mainwindow.cpp.obj	c0f5fcedc23ae1c7
-3426	3746	7293810182126578	qt_front.exe	d9b6b520d09ac065
-7	196	7293813310586794	qt_front_autogen/timestamp	6e3a096ecaadc7a
-7	196	7293813310586794	qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
-7	196	7293813310586794	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/timestamp	6e3a096ecaadc7a
-7	196	7293813310586794	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
-210	2814	7293813336747549	CMakeFiles/qt_front.dir/mainwindow.cpp.obj	c0f5fcedc23ae1c7
-2815	3149	7293813340059062	qt_front.exe	d9b6b520d09ac065
+996	5170	7309288319057658	CMakeFiles/qt_front.dir/conversation.cpp.obj	6343f01bad19b97f
+50	580	7323031888345890	qt_front_autogen/timestamp	6e3a096ecaadc7a
+50	580	7323031888345890	qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
+50	580	7323031888345890	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/timestamp	6e3a096ecaadc7a
+50	580	7323031888345890	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
+11	225	7323057266722149	qt_front_autogen/timestamp	6e3a096ecaadc7a
+11	225	7323057266722149	qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
+11	225	7323057266722149	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/timestamp	6e3a096ecaadc7a
+11	225	7323057266722149	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
+251	4563	7323057310092151	CMakeFiles/qt_front.dir/mainwindow.cpp.obj	c0f5fcedc23ae1c7
+4563	4991	7323057314316763	qt_front.exe	d9b6b520d09ac065
+24	1345	7323058478175747	qt_front.exe	d9b6b520d09ac065

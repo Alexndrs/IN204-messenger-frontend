@@ -4,6 +4,8 @@
 #include "conversation.h"
 #include "message.h"
 
+
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -32,6 +34,13 @@ MainWindow::MainWindow(QWidget *parent)
 
     // Connecter le signal clicked() du bouton ">" au slot sendMessage()
     connect(ui->sendMsgBtn, &QPushButton::clicked, this, &MainWindow::sendMessage);
+
+
+
+
+
+
+
 }
 
 MainWindow::~MainWindow()

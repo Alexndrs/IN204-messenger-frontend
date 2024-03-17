@@ -4,6 +4,8 @@
 #include "conversation.h"
 #include "message.h"
 #include <QTcpSocket>
+#include <QByteArray>
+#include <QDataStream>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -12,9 +14,6 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    clientId = 1001;
-    buildConversation(currentConv);
-    openConversation(0);
 
     // Rendre le QLineEdit invisible et désactivé initialement
     ui->addConvName->setVisible(false);
@@ -29,46 +28,60 @@ MainWindow::MainWindow(QWidget *parent)
     // Connecter le signal returnPressed() du composant lineEdit au slot sendMessage()
     connect(ui->MsgEdit, &QLineEdit::returnPressed, this, &MainWindow::sendMessage);
 
-    // Connecter le signal clicked() du bouton ">" au slot sendMessage()
+    //Connecter le signal clicked() du bouton ">" au slot sendMessage()
     connect(ui->sendMsgBtn, &QPushButton::clicked, this, &MainWindow::sendMessage);
 
 
-
     // Demander un ClientId libre au serveur.
-
     socket = new QTcpSocket(this);
-    connect(socket, &QTcpSocket::connected, this, &MainWindow::onConnected);
     connect(socket, &QTcpSocket::readyRead, this, &MainWindow::onReadyRead);
+    //connect(socket, &QTcpSocket::connected, this, &MainWindow::onConnected);
 
     socket->connectToHost("127.0.0.1", 8080); //remplacer par l'adress IP du serveur et un port propre à chaque utilisateur
 
-    currentConv = Conversation(0, 1001, 1002, "Home", QVector<Message>());
 
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete socket;
 }
 
 void MainWindow::onConnected() {
     qDebug() << "Connecté au serveur.";
-
-    // Lire l'identifiant du client depuis le serveur
-    int clientId;
-    socket->read(reinterpret_cast<char*>(&clientId), sizeof(clientId));
-    qDebug() << "Identifiant du client : " << clientId;
-
-    // Envoyer des données au serveur
-    QByteArray data = "Bonjour serveur";
-    socket->write(data);
 }
 
 
 
 void MainWindow::onReadyRead() {
     QByteArray data = socket->readAll();
-    qDebug() << "Message du serveur :" << data;
+    qDebug() << "Message du serveur onReadyRead:" << data;
+
+    // Créer un flux de données sur le tableau de bytes reçus
+    QDataStream stream(data);
+    stream.setByteOrder(QDataStream::LittleEndian); // Choisir l'endianness appropriée
+
+    stream >> clientId;
+
+    qDebug() << "Identifiant du client (entier) : " << QString::number(clientId);
+
+
+    //On creer une conversation 0 d'accueil entre ClientId et un identifiant -1 attribué à personne, on y ajoute les messages d'accueil
+    currentConv = Conversation(0, clientId, -1, "Home", QVector<Message>());
+    Message WelcomeMessage1(currentConv.msgIdGenerator, -1, "Hello, bienvenu sur messenger++");
+    Message WelcomeMessage2(currentConv.msgIdGenerator, -1, "Tu peux écrire des messages, si la conv est longue tu peux scroll");
+    Message WelcomeMessage3(currentConv.msgIdGenerator, -1, "Tu peux également créer une nouvelle conversation avec le bouton + en haut à gauche");
+    Message WelcomeMessage4(currentConv.msgIdGenerator, -1, "Puis tu choisis le nom de la conversation et c'est parti ! 👌");
+    Message WelcomeMessage5(currentConv.msgIdGenerator, -1, "Ton identifiant attribué par le serveur est " + QString::number(clientId));
+    currentConv.addMsg(WelcomeMessage1);
+    currentConv.addMsg(WelcomeMessage2);
+    currentConv.addMsg(WelcomeMessage3);
+    currentConv.addMsg(WelcomeMessage4);
+    currentConv.addMsg(WelcomeMessage5);
+    buildConversation(currentConv);
+    openConversation(0);
+
 
 }
 

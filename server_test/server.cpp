@@ -2,6 +2,8 @@
 #include <iostream>
 #include <winsock2.h>
 #include <vector>
+#include <string>
+#include <cstring>
 
 // Définition d'une structure pour stocker les informations des clients
 struct ClientInfo
@@ -45,7 +47,14 @@ int main()
         clients.push_back(clientInfo);
 
         // Envoyer l'identifiant du client au client lui-même
-        send(clientSocket, reinterpret_cast<const char *>(&clientInfo.id), sizeof(clientInfo.id), 0);
+        // Convertir l'entier en une chaîne de caractères
+        // std::string id_str = std::to_string(clientInfo.id);
+        // send(clientSocket, id_str.c_str(), id_str.length(), 0);
+        // std::cout << "message envoye au client " << clientInfo.id << " : " << id_str << std::endl;
+
+        int client_id = clientInfo.id;
+        // Envoyer l'identifiant du client au client lui-même
+        send(clientSocket, reinterpret_cast<char *>(&client_id), sizeof(client_id), 0);
 
         // Lire les données du client
         char buffer[1024];
@@ -53,7 +62,7 @@ int main()
         std::cout << "Message du client " << clientInfo.id << ":" << buffer << std::endl;
 
         // Envoyer une réponse au client
-        send(clientSocket, "Message recu", sizeof("Message reçu"), 0);
+        send(clientSocket, "Message recu", sizeof("Message recu"), 0);
 
         // Fermer le socket du client
         closesocket(clientSocket);

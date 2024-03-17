@@ -28,6 +28,10 @@ int main()
     {
         buffer[bytesReceived] = '\0'; // Ajouter le caractère de fin de chaîne
         std::cout << "Réponse du serveur : " << buffer << std::endl;
+
+        // Convertir la chaîne en un entier
+        int client_id = std::stoi(buffer);
+        std::cout << "Identifiant du client (entier) : " << client_id << std::endl;
     }
 
     // Fermer le socket client

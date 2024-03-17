@@ -46,18 +46,6 @@ public:
     QWidget *scrolling;
     QVBoxLayout *verticalLayout_2;
     QVBoxLayout *messageList;
-    QHBoxLayout *horizontalLayout_9;
-    QLabel *label_7;
-    QSpacerItem *horizontalSpacer_7;
-    QHBoxLayout *horizontalLayout_12;
-    QLabel *label_10;
-    QSpacerItem *horizontalSpacer_10;
-    QHBoxLayout *horizontalLayout_13;
-    QLabel *label_11;
-    QSpacerItem *horizontalSpacer_11;
-    QHBoxLayout *horizontalLayout_14;
-    QLabel *label_12;
-    QSpacerItem *horizontalSpacer_12;
     QHBoxLayout *horizontalLayout;
     QLineEdit *MsgEdit;
     QPushButton *sendMsgBtn;
@@ -143,7 +131,7 @@ public:
         scrollArea->setWidgetResizable(true);
         scrolling = new QWidget();
         scrolling->setObjectName("scrolling");
-        scrolling->setGeometry(QRect(0, 0, 606, 464));
+        scrolling->setGeometry(QRect(0, 0, 503, 464));
         QSizePolicy sizePolicy2(QSizePolicy::Preferred, QSizePolicy::MinimumExpanding);
         sizePolicy2.setHorizontalStretch(0);
         sizePolicy2.setVerticalStretch(0);
@@ -153,77 +141,6 @@ public:
         verticalLayout_2->setObjectName("verticalLayout_2");
         messageList = new QVBoxLayout();
         messageList->setObjectName("messageList");
-        horizontalLayout_9 = new QHBoxLayout();
-        horizontalLayout_9->setObjectName("horizontalLayout_9");
-        label_7 = new QLabel(scrolling);
-        label_7->setObjectName("label_7");
-        QSizePolicy sizePolicy3(QSizePolicy::Maximum, QSizePolicy::Maximum);
-        sizePolicy3.setHorizontalStretch(0);
-        sizePolicy3.setVerticalStretch(0);
-        sizePolicy3.setHeightForWidth(label_7->sizePolicy().hasHeightForWidth());
-        label_7->setSizePolicy(sizePolicy3);
-        label_7->setStyleSheet(QString::fromUtf8(""));
-
-        horizontalLayout_9->addWidget(label_7);
-
-        horizontalSpacer_7 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_9->addItem(horizontalSpacer_7);
-
-
-        messageList->addLayout(horizontalLayout_9);
-
-        horizontalLayout_12 = new QHBoxLayout();
-        horizontalLayout_12->setObjectName("horizontalLayout_12");
-        label_10 = new QLabel(scrolling);
-        label_10->setObjectName("label_10");
-        sizePolicy3.setHeightForWidth(label_10->sizePolicy().hasHeightForWidth());
-        label_10->setSizePolicy(sizePolicy3);
-        label_10->setStyleSheet(QString::fromUtf8(""));
-
-        horizontalLayout_12->addWidget(label_10);
-
-        horizontalSpacer_10 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_12->addItem(horizontalSpacer_10);
-
-
-        messageList->addLayout(horizontalLayout_12);
-
-        horizontalLayout_13 = new QHBoxLayout();
-        horizontalLayout_13->setObjectName("horizontalLayout_13");
-        label_11 = new QLabel(scrolling);
-        label_11->setObjectName("label_11");
-        sizePolicy3.setHeightForWidth(label_11->sizePolicy().hasHeightForWidth());
-        label_11->setSizePolicy(sizePolicy3);
-        label_11->setStyleSheet(QString::fromUtf8(""));
-
-        horizontalLayout_13->addWidget(label_11);
-
-        horizontalSpacer_11 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_13->addItem(horizontalSpacer_11);
-
-
-        messageList->addLayout(horizontalLayout_13);
-
-        horizontalLayout_14 = new QHBoxLayout();
-        horizontalLayout_14->setObjectName("horizontalLayout_14");
-        label_12 = new QLabel(scrolling);
-        label_12->setObjectName("label_12");
-        sizePolicy3.setHeightForWidth(label_12->sizePolicy().hasHeightForWidth());
-        label_12->setSizePolicy(sizePolicy3);
-        label_12->setStyleSheet(QString::fromUtf8(""));
-
-        horizontalLayout_14->addWidget(label_12);
-
-        horizontalSpacer_12 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_14->addItem(horizontalSpacer_12);
-
-
-        messageList->addLayout(horizontalLayout_14);
-
 
         verticalLayout_2->addLayout(messageList);
 
@@ -282,10 +199,6 @@ public:
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         addConvBtn->setText(QCoreApplication::translate("MainWindow", "+", nullptr));
-        label_7->setText(QCoreApplication::translate("MainWindow", "Hello, bienvenu sur messenger++", nullptr));
-        label_10->setText(QCoreApplication::translate("MainWindow", "Tu peux \303\251crire des messages, d'ailleurs si la conv est longue tu peux scroll", nullptr));
-        label_11->setText(QCoreApplication::translate("MainWindow", "Tu peux \303\251galement cr\303\251er une nouvelle conversation avec le bouton + en haut \303\240 gauche", nullptr));
-        label_12->setText(QCoreApplication::translate("MainWindow", "Puis tu choisis le nom de la conversation et c'est parti ! \360\237\221\214", nullptr));
         sendMsgBtn->setText(QCoreApplication::translate("MainWindow", ">", nullptr));
         convName->setText(QCoreApplication::translate("MainWindow", "Hello world", nullptr));
     } // retranslateUi

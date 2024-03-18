@@ -1,4 +1,4 @@
-// Client
+// Client de test hors Qt
 #include <iostream>
 #include <winsock2.h>
 
@@ -14,12 +14,16 @@ int main()
     sockaddr_in serverAddress;
     serverAddress.sin_family = AF_INET;
     serverAddress.sin_port = htons(8080);
-    serverAddress.sin_addr.s_addr = inet_addr("127.0.0.1"); // Mettre l'IP du serveur ICI
+    serverAddress.sin_addr.s_addr = inet_addr("127.0.0.1"); // Mettre l'IP du serveur ICI 147.250.234.238
     connect(clientSocket, (sockaddr *)&serverAddress, sizeof(serverAddress));
 
     // Envoyer des données au serveur
-    const char *message = "bonjour serveur";
+    const char *message = "{I:{2},A:{1},D:{2},S:{17/03/2024/64800},C:{Hello je suis les message d'id 2 envoyé de client 1 a client 2 le 17/03/2024 à 18h}}\0";
     send(clientSocket, message, strlen(message), 0);
+
+    // Envoyer des données au serveur
+    const char *autre_message = "{I:{2},A:{1},D:{2},S:{17/03/2024/64825},C:{Un deuxième message pour voir si ca marche}}\0";
+    send(clientSocket, autre_message, strlen(autre_message), 0);
 
     // Recevoir une réponse du serveur
     char buffer[1024];

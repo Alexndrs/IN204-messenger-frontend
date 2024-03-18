@@ -6,20 +6,22 @@
 #include <QTcpSocket>
 #include <QByteArray>
 #include <QDataStream>
+#include <QThread>
 
 
-MainWindow::MainWindow(QWidget *parent)
+MainWindow::MainWindow(QWidget *parent, int idCli)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
 
+    clientId = idCli;
 
     // Rendre le QLineEdit invisible et désactivé initialement
     ui->addConvName->setVisible(false);
     ui->addConvName->setEnabled(false);
     ui->addConvName->clear();
-    ui->addConvName->setPlaceholderText("Saisir nom conversation");
+    ui->addConvName->setPlaceholderText("Saisir id Destinataire");
 
     // Connecter le signal clicked() du bouton "+" au slot createConversation()
     connect(ui->addConvBtn, &QPushButton::clicked, this, &MainWindow::createNewConversation);
@@ -32,14 +34,39 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->sendMsgBtn, &QPushButton::clicked, this, &MainWindow::sendMessage);
 
 
-    // Demander un ClientId libre au serveur.
+    //On creer une conversation 0 d'accueil entre ClientId et un identifiant -1 attribué à personne, on y ajoute les messages d'accueil
+    currentConv = Conversation(0, clientId, -1, "Home", QVector<Message>());
+    Message WelcomeMessage1(currentConv.msgIdGenerator, -1,clientId, "Hello, bienvenu sur messenger++");
+    Message WelcomeMessage2(currentConv.msgIdGenerator, -1,clientId, "Tu peux écrire des messages, si la conv est longue tu peux scroll");
+    Message WelcomeMessage3(currentConv.msgIdGenerator, -1,clientId, "Tu peux également créer une nouvelle conversation avec le bouton + en haut à gauche");
+    Message WelcomeMessage4(currentConv.msgIdGenerator, -1,clientId, "Puis tu choisis le nom de la conversation et c'est parti ! 👌");
+    Message WelcomeMessage5(currentConv.msgIdGenerator, -1,clientId, "Ton identifiant est " + QString::number(clientId));
+    currentConv.addMsg(WelcomeMessage1);
+    currentConv.addMsg(WelcomeMessage2);
+    currentConv.addMsg(WelcomeMessage3);
+    currentConv.addMsg(WelcomeMessage4);
+    currentConv.addMsg(WelcomeMessage5);
+    buildConversation(currentConv);
+    openConversation(0);
+
+
     socket = new QTcpSocket(this);
+    socket->connectToHost("147.250.234.238", 8080); //remplacer par l'adress IP du serveur 147.250.234.238
     connect(socket, &QTcpSocket::readyRead, this, &MainWindow::onReadyRead);
-    //connect(socket, &QTcpSocket::connected, this, &MainWindow::onConnected);
 
-    socket->connectToHost("127.0.0.1", 8080); //remplacer par l'adress IP du serveur et un port propre à chaque utilisateur
+    connect(socket, &QTcpSocket::connected, this, &MainWindow::onConnected);
 
-
+    //Message testMsg1(currentConv.msgIdGenerator, clientId, currentConv.idSecPers, "un premier message de test");
+    //Message testMsg2(currentConv.msgIdGenerator, clientId, currentConv.idSecPers, "un deuxieme message de test");
+    //int bufferSize;
+    //char* buffer1 = testMsg1.translateToBuffer(bufferSize);
+    //qDebug() << "translateToBuffer" << buffer1 << bufferSize;
+    //socket->write(buffer1, bufferSize);
+    //delete[] buffer1;
+    //char* buffer2 = testMsg2.translateToBuffer(bufferSize);
+    //qDebug() << "translateToBuffer" << buffer2 <<bufferSize;
+    //socket->write(buffer2, bufferSize);
+    //delete[] buffer2;
 }
 
 MainWindow::~MainWindow()
@@ -55,33 +82,18 @@ void MainWindow::onConnected() {
 
 
 void MainWindow::onReadyRead() {
-    QByteArray data = socket->readAll();
-    qDebug() << "Message du serveur onReadyRead:" << data;
+    //QByteArray data = socket->readAll();
+    //qDebug() << "Message du serveur onReadyRead:" << data;
 
     // Créer un flux de données sur le tableau de bytes reçus
-    QDataStream stream(data);
-    stream.setByteOrder(QDataStream::LittleEndian); // Choisir l'endianness appropriée
+    //QDataStream stream(data);
+    //stream.setByteOrder(QDataStream::LittleEndian); // Choisir l'endianness appropriée
 
-    stream >> clientId;
+    //stream >> clientId;
 
-    qDebug() << "Identifiant du client (entier) : " << QString::number(clientId);
+    //qDebug() << "Identifiant du client (entier) : " << QString::number(clientId);
 
-
-    //On creer une conversation 0 d'accueil entre ClientId et un identifiant -1 attribué à personne, on y ajoute les messages d'accueil
-    currentConv = Conversation(0, clientId, -1, "Home", QVector<Message>());
-    Message WelcomeMessage1(currentConv.msgIdGenerator, -1, "Hello, bienvenu sur messenger++");
-    Message WelcomeMessage2(currentConv.msgIdGenerator, -1, "Tu peux écrire des messages, si la conv est longue tu peux scroll");
-    Message WelcomeMessage3(currentConv.msgIdGenerator, -1, "Tu peux également créer une nouvelle conversation avec le bouton + en haut à gauche");
-    Message WelcomeMessage4(currentConv.msgIdGenerator, -1, "Puis tu choisis le nom de la conversation et c'est parti ! 👌");
-    Message WelcomeMessage5(currentConv.msgIdGenerator, -1, "Ton identifiant attribué par le serveur est " + QString::number(clientId));
-    currentConv.addMsg(WelcomeMessage1);
-    currentConv.addMsg(WelcomeMessage2);
-    currentConv.addMsg(WelcomeMessage3);
-    currentConv.addMsg(WelcomeMessage4);
-    currentConv.addMsg(WelcomeMessage5);
-    buildConversation(currentConv);
-    openConversation(0);
-
+    qDebug() << "appel de onReadyRead";
 
 }
 
@@ -106,16 +118,33 @@ void MainWindow::createNewConversation(){
 
         // Vérifier si le nom de la conversation n'est pas vide
         if (!conversationName.isEmpty()) {
-            Conversation conversation(++convIdGenerator, 1001, 1002, conversationName, QVector<Message>());
-            buildConversation(conversation);
+
+            bool ok;
+            int idDestinataire = conversationName.toInt(&ok);
+            if (ok) {
+                // La conversion en entier a réussi
+                qDebug() << "ID du destinataire : " << idDestinataire;
+                //faire une requête au serveur pour savoir si le client idDestinataire existe si oui charger la conv en recuperant tous les messages
 
 
-            // Cacher et désactiver et vider le contenu de QLineEdit après avoir récupéré le texte saisi
-            ui->addConvName->setVisible(false);
-            ui->addConvName->setEnabled(false);
-            ui->addConvName->clear();
 
-            openConversation(1);
+
+                Conversation conversation(++convIdGenerator, clientId, idDestinataire, conversationName, QVector<Message>());
+                buildConversation(conversation);
+
+
+                // Cacher et désactiver et vider le contenu de QLineEdit après avoir récupéré le texte saisi
+                ui->addConvName->setVisible(false);
+                ui->addConvName->setEnabled(false);
+                ui->addConvName->clear();
+
+                openConversation(1);
+
+            }
+            else {
+                // La conversion a échoué
+                qDebug() << "Erreur : le texte n'est pas un entier.";
+            }
         } else {
             // Afficher un message d'erreur ou effectuer une action appropriée
             qDebug() << "Le nom de la conversation ne peut pas être vide !";
@@ -230,7 +259,25 @@ void MainWindow::sendMessage() {
     // Récupérer le message depuis le composant QLineEdit (MsgEdit)
     QString message = ui->MsgEdit->text();
 
-    Message newMsg(currentConv.msgIdGenerator, clientId, message);
+    Message newMsg(currentConv.msgIdGenerator, clientId, currentConv.idSecPers, message);
+    Message otherTestMsg(currentConv.msgIdGenerator, clientId, currentConv.idSecPers, "Un deuxieme message a la suite de l'autre pour voir si on peut enchainer");
+
+
+    // Envoyer le nouveau msg au serveur
+    int bufferSize;
+    char* buffer = newMsg.translateToBuffer(bufferSize);
+    qDebug() << "translateToBuffer" << buffer;
+    socket->write(buffer, bufferSize);
+    delete[] buffer;
+
+    // Pause de 3 secondes
+    QThread::sleep(3);
+
+    char* newBuffer = otherTestMsg.translateToBuffer(bufferSize);
+    qDebug() << "translateToBuffer" << newBuffer;
+    socket->write(newBuffer, bufferSize);
+    delete[] newBuffer;
+
 
     currentConv.addMsg(newMsg);
     conversationList[currentConv.idConv] = currentConv;
@@ -247,5 +294,3 @@ void MainWindow::sendMessage() {
     // Effacer le texte du QLineEdit après l'avoir envoyé
     ui->MsgEdit->clear();
 }
-
-

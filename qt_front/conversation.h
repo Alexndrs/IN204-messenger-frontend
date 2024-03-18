@@ -9,10 +9,10 @@ class Conversation
 {
 
 private:
-    int idFirstPers;
-    int idSecPers;
     QString convName;
 public:
+    int idFirstPers;
+    int idSecPers;
     QVector<Message> messages;
     int msgIdGenerator = 0; //On incrémente de 1 pour generer un nouvel id de msg pour cette conv
     int idConv;

@@ -6,7 +6,7 @@ Conversation::Conversation(){
     idSecPers = 0;
     convName = "";
     messages = QVector<Message>();
-}
+} // Ce constructeur n'est jamais utilisé en pratique.
 
 Conversation::Conversation(int idConv, int idFirstPers, int idSecPers, QString convName, QVector<Message> messages)
     : idConv(idConv), idFirstPers(idFirstPers), idSecPers(idSecPers), convName(convName), messages(messages){}

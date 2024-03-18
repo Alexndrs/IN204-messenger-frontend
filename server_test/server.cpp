@@ -35,7 +35,6 @@ int main()
 
     while (true)
     {
-
         // Accepter les connexions entrantes
         SOCKET clientSocket = accept(serverSocket, nullptr, nullptr);
         // Créer un objet ClientInfo pour stocker les informations du client
@@ -46,23 +45,26 @@ int main()
         // Ajouter le client à la liste
         clients.push_back(clientInfo);
 
-        // Envoyer l'identifiant du client au client lui-même
-        // Convertir l'entier en une chaîne de caractères
-        // std::string id_str = std::to_string(clientInfo.id);
-        // send(clientSocket, id_str.c_str(), id_str.length(), 0);
-        // std::cout << "message envoye au client " << clientInfo.id << " : " << id_str << std::endl;
-
         int client_id = clientInfo.id;
         // Envoyer l'identifiant du client au client lui-même
         send(clientSocket, reinterpret_cast<char *>(&client_id), sizeof(client_id), 0);
 
         // Lire les données du client
-        char buffer[1024];
-        recv(clientSocket, buffer, sizeof(buffer), 0);
-        std::cout << "Message du client " << clientInfo.id << ":" << buffer << std::endl;
+        while (true)
+        {
+            char buffer[1024];
+            int bytesRead = recv(clientSocket, buffer, sizeof(buffer), 0);
+            if (bytesRead <= 0)
+            {
+                // Le client a fermé la connexion ou une erreur s'est produite
+                std::cout << "Le client a fermé la connexion ou une erreur s'est produite" << std::endl;
+                break;
+            }
+            std::cout << "Message du client " << clientInfo.id << ":" << buffer << std::endl;
 
-        // Envoyer une réponse au client
-        send(clientSocket, "Message recu", sizeof("Message recu"), 0);
+            //// Envoyer une réponse au client
+            // send(clientSocket, "Message recu", sizeof("Message recu"), 0);
+        }
 
         // Fermer le socket du client
         closesocket(clientSocket);

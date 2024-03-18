@@ -29,7 +29,7 @@ private:
     QVector<Conversation> conversationList;
 
 public:
-    MainWindow(QWidget *parent = nullptr);
+    MainWindow(QWidget *parent = nullptr, int idCli=1);
     ~MainWindow();
     Conversation getCurrentConv();
 

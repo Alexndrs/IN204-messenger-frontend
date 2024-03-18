@@ -9,20 +9,22 @@ class Message
 public :
     int idMsg;
     int idAuteur;
+    int idDestinataire;
     QString contenu;
-    int heure;
-    int min;
+    int sec;
+    QString currentDate;
 
 public:
-    Message(int idMsg, int idAuteur, QString contenu);
-
-    Message(int idMsg, int idAuteur, QString contenu, int heure, int min);
+    Message(int idMsg, int idAuteur,int idDestinataire, QString contenu);
 
     ~Message(){}
 
     int getMsgId();
 
     void editMsgContent(QString nouveauContenu);
+
+    char* translateToBuffer(int& bufferSize);
+
 };
 
 

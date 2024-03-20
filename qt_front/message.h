@@ -15,6 +15,8 @@ public :
     QString currentDate;
 
 public:
+    Message();
+
     Message(int idMsg, int idAuteur,int idDestinataire, QString contenu);
 
     ~Message(){}
@@ -25,6 +27,7 @@ public:
 
     char* translateToBuffer(int& bufferSize);
 
+    void translateFromBuffer(char* buffer);
 };
 
 

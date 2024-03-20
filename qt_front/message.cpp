@@ -1,4 +1,7 @@
 #include "message.h"
+#include <QRegularExpression>
+
+Message::Message(): idMsg(0), idAuteur(0), idDestinataire(0), contenu(""), sec(0), currentDate(""){}
 
 Message::Message(int idMsg, int idAuteur, int idDestinataire, QString contenu) : idMsg(idMsg), idAuteur(idAuteur), idDestinataire(idDestinataire), contenu(contenu)
 {
@@ -41,6 +44,32 @@ char* Message::translateToBuffer(int& bufferSize) {
     buffer[formattedString.length()] = '\0';
 
     return buffer;
+}
+
+void Message::translateFromBuffer(char* buffer) {
+    QString bufferString(buffer);
+
+    // Trouver les positions des différents champs
+    int idMsgPos = bufferString.indexOf("I:{") + 3;
+    int idAuteurPos = bufferString.indexOf("A:{") + 3;
+    int idDestinatairePos = bufferString.indexOf("D:{") + 3;
+    int contenuPos = bufferString.indexOf("C:{") + 3;
+    int currentDatePos = bufferString.indexOf("S:{") + 3;
+    int currentDatePosFin = bufferString.indexOf("}", currentDatePos);
+
+
+
+    // Extraire les sous-chaînes correspondantes aux différents champs
+    idMsg = bufferString.mid(idMsgPos, bufferString.indexOf("}", idMsgPos) - idMsgPos).toInt();
+    idAuteur = bufferString.mid(idAuteurPos, bufferString.indexOf("}", idAuteurPos) - idAuteurPos).toInt();
+    idDestinataire = bufferString.mid(idDestinatairePos, bufferString.indexOf("}", idDestinatairePos) - idDestinatairePos).toInt();
+    contenu = bufferString.mid(contenuPos, bufferString.indexOf("}", contenuPos) - contenuPos);
+
+    //La recuperation de la date est un peu plus complexe car il faut la separer des secondes
+    QString dateAndSec = bufferString.mid(currentDatePos, currentDatePosFin - currentDatePos);
+    QStringList dateAndSecSplited = dateAndSec.split('/');
+    currentDate = dateAndSecSplited[0] + "/" + dateAndSecSplited[1] + "/" + dateAndSecSplited[2];
+    sec = dateAndSecSplited[3].toInt();
 }
 
 

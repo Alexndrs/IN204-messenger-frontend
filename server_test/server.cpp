@@ -45,13 +45,16 @@ int main()
         // Ajouter le client à la liste
         clients.push_back(clientInfo);
 
-        int client_id = clientInfo.id;
-        // Envoyer l'identifiant du client au client lui-même
-        send(clientSocket, reinterpret_cast<char *>(&client_id), sizeof(client_id), 0);
+        // int client_id = clientInfo.id;
+        //  Envoyer l'identifiant du client au client lui-même
+        // send(clientSocket, reinterpret_cast<char *>(&client_id), sizeof(client_id), 0);
+        int s = sizeof("{I:{6},A:{4},D:{2},S:{20/03/2024/32714},C:{test avec accent èçù}}\0");
+        send(clientSocket, "{I:{6},A:{4},D:{2},S:{20/03/2024/32714},C:{test avec accent èçù}}\0", s, 0);
 
         // Lire les données du client
         while (true)
         {
+            std::cout << "passage dans la grande boucle while" << std::endl;
             char buffer[1024];
             int bytesRead = recv(clientSocket, buffer, sizeof(buffer), 0);
             if (bytesRead <= 0)

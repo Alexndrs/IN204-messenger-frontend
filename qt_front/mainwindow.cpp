@@ -51,7 +51,8 @@ MainWindow::MainWindow(QWidget *parent, int idCli)
 
 
     socket = new QTcpSocket(this);
-    socket->connectToHost("147.250.234.238", 8080); //remplacer par l'adress IP du serveur 147.250.234.238
+    //socket->connectToHost("127.0.0.1", 8080); //remplacer par l'adress IP du serveur 147.250.231.188
+    socket->connectToHost("147.250.231.188", 8080);
     connect(socket, &QTcpSocket::readyRead, this, &MainWindow::onReadyRead);
 
     connect(socket, &QTcpSocket::connected, this, &MainWindow::onConnected);
@@ -82,18 +83,23 @@ void MainWindow::onConnected() {
 
 
 void MainWindow::onReadyRead() {
-    //QByteArray data = socket->readAll();
-    //qDebug() << "Message du serveur onReadyRead:" << data;
+    QByteArray data = socket->readAll();
+    qDebug() << "Message du serveur onReadyRead:" << data;
+    qDebug() << "Translate brute en QString: " << QString(data);
+    Message msgRcv;
+    msgRcv.translateFromBuffer(data.data());
+
+    qDebug() << "I:" << msgRcv.idMsg << "|  A:" << msgRcv.idAuteur << "|  D:" << msgRcv.idDestinataire << "|  C:" << msgRcv.contenu << "| Date:" <<msgRcv.currentDate << "| sec:" << msgRcv.sec;
 
     // Créer un flux de données sur le tableau de bytes reçus
     //QDataStream stream(data);
     //stream.setByteOrder(QDataStream::LittleEndian); // Choisir l'endianness appropriée
 
-    //stream >> clientId;
+    //stream >> bufferRecv;
 
     //qDebug() << "Identifiant du client (entier) : " << QString::number(clientId);
 
-    qDebug() << "appel de onReadyRead";
+    //qDebug() << "appel de onReadyRead";
 
 }
 

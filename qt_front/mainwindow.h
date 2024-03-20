@@ -19,9 +19,6 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
-public:
-    int convIdGenerator = 0;
-
 private:
     QTcpSocket *socket;
     int clientId;
@@ -40,7 +37,7 @@ public slots:
     void onReadyRead();
     void createNewConversation();
     void buildConversation(Conversation conversation);
-    void openConversation(int idConv);
+    void openConversation(int idDestinataire);
     void displayMsg(Message message);
     void closeConv();
     void sendMessage();

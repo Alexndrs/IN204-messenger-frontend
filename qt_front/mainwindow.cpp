@@ -35,7 +35,7 @@ MainWindow::MainWindow(QWidget *parent, int idCli)
 
 
     //On creer une conversation 0 d'accueil entre ClientId et un identifiant -1 attribué à personne, on y ajoute les messages d'accueil
-    currentConv = Conversation(0, clientId, -1, "Home", QVector<Message>());
+    currentConv = Conversation(clientId, -1, "Home", QVector<Message>());
     Message WelcomeMessage1(currentConv.msgIdGenerator, -1,clientId, "Hello, bienvenu sur messenger++");
     Message WelcomeMessage2(currentConv.msgIdGenerator, -1,clientId, "Tu peux écrire des messages, si la conv est longue tu peux scroll");
     Message WelcomeMessage3(currentConv.msgIdGenerator, -1,clientId, "Tu peux également créer une nouvelle conversation avec le bouton + en haut à gauche");
@@ -133,17 +133,8 @@ void MainWindow::createNewConversation(){
             if (ok) {
                 // La conversion en entier a réussi
                 qDebug() << "ID du destinataire : " << idDestinataire;
-                //pour savoir si il y avait deja des messages dans la DB entre ces utilisateur : on envoie un buffer (clientId, idDestinataire) au serveur.
 
-                int bufferSize = snprintf(nullptr, 0, "(%d,%d)", clientId, idDestinataire) + 1;
-                char* buffer = new char[bufferSize];
-                snprintf(buffer, bufferSize, "(%d,%d)", clientId, idDestinataire);
-                qDebug() << "buffer_a_send" << buffer;
-                socket->write(buffer, bufferSize);
-                delete[] buffer;
-
-
-                Conversation conversation(++convIdGenerator, clientId, idDestinataire, conversationName, QVector<Message>());
+                Conversation conversation(clientId, idDestinataire, conversationName, QVector<Message>());
                 buildConversation(conversation);
 
 
@@ -152,7 +143,7 @@ void MainWindow::createNewConversation(){
                 ui->addConvName->setEnabled(false);
                 ui->addConvName->clear();
 
-                openConversation(1);
+                openConversation(idDestinataire);
 
             }
             else {
@@ -172,12 +163,21 @@ void MainWindow::buildConversation(Conversation conversation){
 
     conversationList.append(conversation);
 
+    //pour savoir si il y avait deja des messages dans la DB entre clientId et le destinataire : on envoie un buffer (clientId, idDestinataire) au serveur.
+    int bufferSize = snprintf(nullptr, 0, "(%d,%d)", clientId, conversation.idSecPers) + 1;
+    char* buffer = new char[bufferSize];
+    snprintf(buffer, bufferSize, "(%d,%d)", clientId, conversation.idSecPers);
+    qDebug() << "buffer_send" << buffer;
+    socket->write(buffer, bufferSize);
+    delete[] buffer;
+    //On aura recevra les precedents messages si il y en a dans onReadyRead
+
 
     QPushButton *conversationButton = new QPushButton(conversation.getName(), this);
-    conversationButton->setProperty("conversationId", conversation.idConv);
+    conversationButton->setProperty("idDestinataire", conversation.idSecPers);
     connect(conversationButton, &QPushButton::clicked, this, [=](){
         closeConv();
-        openConversation(conversation.idConv);
+        openConversation(conversation.idSecPers);
     });
 
     ui->listConv->addWidget(conversationButton);
@@ -216,20 +216,20 @@ void MainWindow::closeConv(){
 }
 
 
-void MainWindow::openConversation(int idConv){
+void MainWindow::openConversation(int idDestinataire){
 
 
     qDebug() << "Tailles des conversations :";
-    for (const Conversation &conversation : conversationList) {
-        qDebug() << "Conversation" << conversation.idConv << ": " << conversation.messages.size();
-    }
+    //for (const Conversation &conversation : conversationList) {
+    //    qDebug() << "Conversation" << conversation.idConv << ": " << conversation.messages.size();
+    //}
 
 
 
 
     //load la conv
     for (int i=0; i<conversationList.size(); i++){
-        if (conversationList[i].idConv == idConv){
+        if (conversationList[i].idSecPers == idDestinataire){
             currentConv = conversationList[i];
         }
     }
@@ -294,14 +294,18 @@ void MainWindow::sendMessage() {
 
 
     currentConv.addMsg(newMsg);
-    conversationList[currentConv.idConv] = currentConv;
+    for (int i=0; i<conversationList.size(); i++){
+        if (conversationList[i].idSecPers == currentConv.idSecPers){
+            conversationList[i] = currentConv;
+        }
+    }
     displayMsg(newMsg);
 
 
     qDebug() << "Tailles des conversations :";
-    for (const Conversation &conversation : conversationList) {
-        qDebug() << "Conversation" << conversation.idConv << ": " << conversation.messages.size();
-    }
+    //for (const Conversation &conversation : conversationList) {
+    //    qDebug() << "Conversation" << conversation.idConv << ": " << conversation.messages.size();
+    //}
 
     qDebug() << "currentConvSize" << currentConv.messages.size();
 

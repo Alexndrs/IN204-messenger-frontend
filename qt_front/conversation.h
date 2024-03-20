@@ -15,12 +15,11 @@ public:
     int idSecPers;
     QVector<Message> messages;
     int msgIdGenerator = 0; //On incrémente de 1 pour generer un nouvel id de msg pour cette conv
-    int idConv;
 
 public:
     // Constructeur prenant tous les paramètres
     Conversation();
-    Conversation(int idConv, int idFirstPers, int idSecPers, QString convName, QVector<Message> messages);
+    Conversation(int idFirstPers, int idSecPers, QString convName, QVector<Message> messages);
 
     QString getName();
     int getConvSize();

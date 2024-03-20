@@ -47,7 +47,7 @@ static constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers:
     "Conversation",
     "conversation",
     "openConversation",
-    "idConv",
+    "idDestinataire",
     "displayMsg",
     "Message",
     "message",
@@ -66,7 +66,7 @@ struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {
     char stringdata6[13];
     char stringdata7[13];
     char stringdata8[17];
-    char stringdata9[7];
+    char stringdata9[15];
     char stringdata10[11];
     char stringdata11[8];
     char stringdata12[8];
@@ -86,12 +86,12 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_st
         QT_MOC_LITERAL(76, 12),  // "Conversation"
         QT_MOC_LITERAL(89, 12),  // "conversation"
         QT_MOC_LITERAL(102, 16),  // "openConversation"
-        QT_MOC_LITERAL(119, 6),  // "idConv"
-        QT_MOC_LITERAL(126, 10),  // "displayMsg"
-        QT_MOC_LITERAL(137, 7),  // "Message"
-        QT_MOC_LITERAL(145, 7),  // "message"
-        QT_MOC_LITERAL(153, 9),  // "closeConv"
-        QT_MOC_LITERAL(163, 11)   // "sendMessage"
+        QT_MOC_LITERAL(119, 14),  // "idDestinataire"
+        QT_MOC_LITERAL(134, 10),  // "displayMsg"
+        QT_MOC_LITERAL(145, 7),  // "Message"
+        QT_MOC_LITERAL(153, 7),  // "message"
+        QT_MOC_LITERAL(161, 9),  // "closeConv"
+        QT_MOC_LITERAL(171, 11)   // "sendMessage"
     },
     "MainWindow",
     "onConnected",
@@ -102,7 +102,7 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_st
     "Conversation",
     "conversation",
     "openConversation",
-    "idConv",
+    "idDestinataire",
     "displayMsg",
     "Message",
     "message",

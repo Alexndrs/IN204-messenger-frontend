@@ -1,15 +1,14 @@
 #include "conversation.h"
 
 Conversation::Conversation(){
-    idConv = 0;
     idFirstPers = 0;
     idSecPers = 0;
     convName = "";
     messages = QVector<Message>();
 } // Ce constructeur n'est jamais utilisé en pratique.
 
-Conversation::Conversation(int idConv, int idFirstPers, int idSecPers, QString convName, QVector<Message> messages)
-    : idConv(idConv), idFirstPers(idFirstPers), idSecPers(idSecPers), convName(convName), messages(messages){}
+Conversation::Conversation(int idFirstPers, int idSecPers, QString convName, QVector<Message> messages)
+    :idFirstPers(idFirstPers), idSecPers(idSecPers), convName(convName), messages(messages){}
 
 int Conversation::getConvSize(){
     return messages.size();

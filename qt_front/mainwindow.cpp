@@ -91,6 +91,9 @@ void MainWindow::onReadyRead() {
 
     qDebug() << "I:" << msgRcv.idMsg << "|  A:" << msgRcv.idAuteur << "|  D:" << msgRcv.idDestinataire << "|  C:" << msgRcv.contenu << "| Date:" <<msgRcv.currentDate << "| sec:" << msgRcv.sec;
 
+    if (msgRcv.idDestinataire == clientId){
+
+    }
     // Créer un flux de données sur le tableau de bytes reçus
     //QDataStream stream(data);
     //stream.setByteOrder(QDataStream::LittleEndian); // Choisir l'endianness appropriée
@@ -130,9 +133,14 @@ void MainWindow::createNewConversation(){
             if (ok) {
                 // La conversion en entier a réussi
                 qDebug() << "ID du destinataire : " << idDestinataire;
-                //faire une requête au serveur pour savoir si le client idDestinataire existe si oui charger la conv en recuperant tous les messages
+                //pour savoir si il y avait deja des messages dans la DB entre ces utilisateur : on envoie un buffer (clientId, idDestinataire) au serveur.
 
-
+                int bufferSize = snprintf(nullptr, 0, "(%d,%d)", clientId, idDestinataire) + 1;
+                char* buffer = new char[bufferSize];
+                snprintf(buffer, bufferSize, "(%d,%d)", clientId, idDestinataire);
+                qDebug() << "buffer_a_send" << buffer;
+                socket->write(buffer, bufferSize);
+                delete[] buffer;
 
 
                 Conversation conversation(++convIdGenerator, clientId, idDestinataire, conversationName, QVector<Message>());
@@ -266,7 +274,7 @@ void MainWindow::sendMessage() {
     QString message = ui->MsgEdit->text();
 
     Message newMsg(currentConv.msgIdGenerator, clientId, currentConv.idSecPers, message);
-    Message otherTestMsg(currentConv.msgIdGenerator, clientId, currentConv.idSecPers, "Un deuxieme message a la suite de l'autre pour voir si on peut enchainer");
+    //Message otherTestMsg(currentConv.msgIdGenerator, clientId, currentConv.idSecPers, "Un deuxieme message a la suite de l'autre pour voir si on peut enchainer");
 
 
     // Envoyer le nouveau msg au serveur
@@ -277,12 +285,12 @@ void MainWindow::sendMessage() {
     delete[] buffer;
 
     // Pause de 3 secondes
-    QThread::sleep(3);
+    //QThread::sleep(3);
 
-    char* newBuffer = otherTestMsg.translateToBuffer(bufferSize);
-    qDebug() << "translateToBuffer" << newBuffer;
-    socket->write(newBuffer, bufferSize);
-    delete[] newBuffer;
+    //char* newBuffer = otherTestMsg.translateToBuffer(bufferSize);
+    //qDebug() << "translateToBuffer" << newBuffer;
+    //socket->write(newBuffer, bufferSize);
+    //delete[] newBuffer;
 
 
     currentConv.addMsg(newMsg);

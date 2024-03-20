@@ -46,10 +46,11 @@ public:
     QWidget *scrolling;
     QVBoxLayout *verticalLayout_2;
     QVBoxLayout *messageList;
+    QLabel *convName;
     QHBoxLayout *horizontalLayout;
     QLineEdit *MsgEdit;
     QPushButton *sendMsgBtn;
-    QLabel *convName;
+    QPushButton *reloadBtn;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -131,7 +132,7 @@ public:
         scrollArea->setWidgetResizable(true);
         scrolling = new QWidget();
         scrolling->setObjectName("scrolling");
-        scrolling->setGeometry(QRect(0, 0, 503, 464));
+        scrolling->setGeometry(QRect(0, 0, 416, 464));
         QSizePolicy sizePolicy2(QSizePolicy::Preferred, QSizePolicy::MinimumExpanding);
         sizePolicy2.setHorizontalStretch(0);
         sizePolicy2.setVerticalStretch(0);
@@ -149,44 +150,49 @@ public:
         verticalLayout->addWidget(scrollArea);
 
 
-        gridLayout->addWidget(Messagesframe, 1, 0, 1, 1);
+        gridLayout->addWidget(Messagesframe, 1, 1, 1, 1);
+
+        convName = new QLabel(verticalLayoutWidget_2);
+        convName->setObjectName("convName");
+        QFont font;
+        font.setFamilies({QString::fromUtf8("Montserrat SemiBold")});
+        font.setBold(true);
+        font.setItalic(true);
+        convName->setFont(font);
+
+        gridLayout->addWidget(convName, 0, 1, 1, 1);
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName("horizontalLayout");
         MsgEdit = new QLineEdit(verticalLayoutWidget_2);
         MsgEdit->setObjectName("MsgEdit");
         MsgEdit->setEnabled(true);
-        QFont font;
-        font.setFamilies({QString::fromUtf8("Montserrat Medium")});
-        font.setPointSize(22);
-        font.setWeight(QFont::Black);
-        font.setKerning(false);
-        MsgEdit->setFont(font);
+        QFont font1;
+        font1.setFamilies({QString::fromUtf8("Montserrat Medium")});
+        font1.setPointSize(22);
+        font1.setWeight(QFont::Black);
+        font1.setKerning(false);
+        MsgEdit->setFont(font1);
 
         horizontalLayout->addWidget(MsgEdit);
 
         sendMsgBtn = new QPushButton(verticalLayoutWidget_2);
         sendMsgBtn->setObjectName("sendMsgBtn");
-        QFont font1;
-        font1.setFamilies({QString::fromUtf8("Montserrat Black")});
-        font1.setPointSize(22);
-        font1.setBold(true);
-        sendMsgBtn->setFont(font1);
+        QFont font2;
+        font2.setFamilies({QString::fromUtf8("Montserrat Black")});
+        font2.setPointSize(22);
+        font2.setBold(true);
+        sendMsgBtn->setFont(font2);
 
         horizontalLayout->addWidget(sendMsgBtn);
 
 
-        gridLayout->addLayout(horizontalLayout, 2, 0, 1, 1);
+        gridLayout->addLayout(horizontalLayout, 2, 1, 1, 1);
 
-        convName = new QLabel(verticalLayoutWidget_2);
-        convName->setObjectName("convName");
-        QFont font2;
-        font2.setFamilies({QString::fromUtf8("Montserrat SemiBold")});
-        font2.setBold(true);
-        font2.setItalic(true);
-        convName->setFont(font2);
+        reloadBtn = new QPushButton(verticalLayoutWidget_2);
+        reloadBtn->setObjectName("reloadBtn");
 
-        gridLayout->addWidget(convName, 0, 0, 1, 1);
+        gridLayout->addWidget(reloadBtn, 2, 0, 1, 1);
 
         MainWindow->setCentralWidget(centralwidget);
 
@@ -199,8 +205,9 @@ public:
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         addConvBtn->setText(QCoreApplication::translate("MainWindow", "+", nullptr));
-        sendMsgBtn->setText(QCoreApplication::translate("MainWindow", ">", nullptr));
         convName->setText(QCoreApplication::translate("MainWindow", "Hello world", nullptr));
+        sendMsgBtn->setText(QCoreApplication::translate("MainWindow", ">", nullptr));
+        reloadBtn->setText(QCoreApplication::translate("MainWindow", "\342\237\263", nullptr));
     } // retranslateUi
 
 };

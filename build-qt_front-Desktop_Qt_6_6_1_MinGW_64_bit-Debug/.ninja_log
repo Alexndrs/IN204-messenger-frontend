@@ -1,78 +1,71 @@
 # ninja log v5
-13	170	7326294894979484	qt_front_autogen/timestamp	6e3a096ecaadc7a
-13	170	7326294894979484	qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
-13	170	7326294894979484	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/timestamp	6e3a096ecaadc7a
-13	170	7326294894979484	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
-748	3683	7326280963826846	CMakeFiles/qt_front.dir/main.cpp.obj	efac7ef141ba8c38
-751	3451	7326280961505453	CMakeFiles/qt_front.dir/qt_front_autogen/mocs_compilation.cpp.obj	ce7113e86c99a7dc
-245	4728	7326293977615132	CMakeFiles/qt_front.dir/mainwindow.cpp.obj	b292941de016a9c7
-4729	5160	7326293981880429	qt_front.exe	388a38ac392dfc62
-250	2993	7326293960268364	CMakeFiles/qt_front.dir/message.cpp.obj	5733de95f0922dbd
-763	3263	7326280959630167	CMakeFiles/qt_front.dir/conversation.cpp.obj	dc34834ab6f47b7
-18	205	7326295765805112	qt_front_autogen/timestamp	6e3a096ecaadc7a
-18	205	7326295765805112	qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
-18	205	7326295765805112	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/timestamp	6e3a096ecaadc7a
-18	205	7326295765805112	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
-226	4092	7326295804672174	CMakeFiles/qt_front.dir/mainwindow.cpp.obj	b292941de016a9c7
-4093	4587	7326295809519414	qt_front.exe	388a38ac392dfc62
-26	556	7326315127669900	qt_front_autogen/timestamp	6e3a096ecaadc7a
-26	556	7326315127669900	qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
-26	556	7326315127669900	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/timestamp	6e3a096ecaadc7a
-26	556	7326315127669900	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
-612	4459	7326315166769244	CMakeFiles/qt_front.dir/mainwindow.cpp.obj	b292941de016a9c7
-4459	5042	7326315172503797	qt_front.exe	388a38ac392dfc62
-49	569	7326319405927905	qt_front_autogen/timestamp	6e3a096ecaadc7a
-49	569	7326319405927905	qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
-49	569	7326319405927905	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/timestamp	6e3a096ecaadc7a
-49	569	7326319405927905	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
-598	4035	7326319440638625	CMakeFiles/qt_front.dir/mainwindow.cpp.obj	b292941de016a9c7
-4036	4533	7326319445590306	qt_front.exe	388a38ac392dfc62
-26	487	7326327622816669	qt_front_autogen/timestamp	6e3a096ecaadc7a
-26	487	7326327622816669	qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
-26	487	7326327622816669	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/timestamp	6e3a096ecaadc7a
-26	487	7326327622816669	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
-506	3721	7326327655143508	CMakeFiles/qt_front.dir/mainwindow.cpp.obj	b292941de016a9c7
-3721	4339	7326327661252160	qt_front.exe	388a38ac392dfc62
-8	185	7326330536522548	qt_front_autogen/timestamp	6e3a096ecaadc7a
-8	185	7326330536522548	qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
-8	185	7326330536522548	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/timestamp	6e3a096ecaadc7a
-8	185	7326330536522548	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
-207	4027	7326330574943450	CMakeFiles/qt_front.dir/mainwindow.cpp.obj	b292941de016a9c7
-4028	4770	7326330582296990	qt_front.exe	388a38ac392dfc62
-6	544	7326350042590169	qt_front_autogen/timestamp	6e3a096ecaadc7a
-6	544	7326350042590169	qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
-6	544	7326350042590169	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/timestamp	6e3a096ecaadc7a
-6	544	7326350042590169	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
-550	2606	7326350063782170	CMakeFiles/qt_front.dir/conversation.cpp.obj	dc34834ab6f47b7
-544	2901	7326350066747625	CMakeFiles/qt_front.dir/qt_front_autogen/mocs_compilation.cpp.obj	ce7113e86c99a7dc
-547	3123	7326350068963531	CMakeFiles/qt_front.dir/main.cpp.obj	efac7ef141ba8c38
-17	234	7326350218067507	qt_front_autogen/timestamp	6e3a096ecaadc7a
-17	234	7326350218067507	qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
-17	234	7326350218067507	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/timestamp	6e3a096ecaadc7a
-17	234	7326350218067507	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
-254	3727	7326350252996627	CMakeFiles/qt_front.dir/mainwindow.cpp.obj	b292941de016a9c7
-3728	4097	7326350256672619	qt_front.exe	388a38ac392dfc62
-13	321	7326353188789564	qt_front_autogen/timestamp	6e3a096ecaadc7a
-13	321	7326353188789564	qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
-13	321	7326353188789564	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/timestamp	6e3a096ecaadc7a
-13	321	7326353188789564	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
-27	227	7326353519115456	qt_front_autogen/timestamp	6e3a096ecaadc7a
-27	227	7326353519115456	qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
-27	227	7326353519115456	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/timestamp	6e3a096ecaadc7a
-27	227	7326353519115456	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
-248	3708	7326353553934882	CMakeFiles/qt_front.dir/mainwindow.cpp.obj	b292941de016a9c7
-3709	4069	7326353557501356	qt_front.exe	388a38ac392dfc62
-27	507	7326355433675220	qt_front_autogen/timestamp	6e3a096ecaadc7a
-27	507	7326355433675220	qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
-27	507	7326355433675220	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/timestamp	6e3a096ecaadc7a
-27	507	7326355433675220	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
-11	144	7326355588321542	qt_front_autogen/timestamp	6e3a096ecaadc7a
-11	144	7326355588321542	qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
-11	144	7326355588321542	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/timestamp	6e3a096ecaadc7a
-11	144	7326355588321542	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
-22	279	7326355978286187	qt_front_autogen/timestamp	6e3a096ecaadc7a
-22	279	7326355978286187	qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
-22	279	7326355978286187	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/timestamp	6e3a096ecaadc7a
-22	279	7326355978286187	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
-305	4368	7326356019187211	CMakeFiles/qt_front.dir/mainwindow.cpp.obj	b292941de016a9c7
-4369	4780	7326356023264695	qt_front.exe	388a38ac392dfc62
+18	224	7326574999528811	qt_front_autogen/timestamp	6e3a096ecaadc7a
+18	224	7326574999528811	qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
+18	224	7326574999528811	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/timestamp	6e3a096ecaadc7a
+579	3155	7326568641033404	CMakeFiles/qt_front.dir/main.cpp.obj	efac7ef141ba8c38
+18	224	7326574999528811	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
+248	4772	7326575045001267	CMakeFiles/qt_front.dir/mainwindow.cpp.obj	b292941de016a9c7
+582	3172	7326568641203377	CMakeFiles/qt_front.dir/qt_front_autogen/mocs_compilation.cpp.obj	ce7113e86c99a7dc
+7	409	7326575669195335	qt_front.exe	388a38ac392dfc62
+1515	5162	7326359355074783	CMakeFiles/qt_front.dir/message.cpp.obj	5733de95f0922dbd
+1058	3899	7326407191972549	CMakeFiles/qt_front.dir/conversation.cpp.obj	dc34834ab6f47b7
+11	216	7326576349157026	qt_front_autogen/timestamp	6e3a096ecaadc7a
+11	216	7326576349157026	qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
+11	216	7326576349157026	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/timestamp	6e3a096ecaadc7a
+11	216	7326576349157026	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
+241	3381	7326576380815127	CMakeFiles/qt_front.dir/mainwindow.cpp.obj	b292941de016a9c7
+3381	3776	7326576384715602	qt_front.exe	388a38ac392dfc62
+7	165	7326578148879360	qt_front_autogen/timestamp	6e3a096ecaadc7a
+7	165	7326578148879360	qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
+7	165	7326578148879360	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/timestamp	6e3a096ecaadc7a
+7	165	7326578148879360	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
+182	3990	7326578187112232	CMakeFiles/qt_front.dir/mainwindow.cpp.obj	b292941de016a9c7
+3990	4675	7326578193903541	qt_front.exe	388a38ac392dfc62
+18	209	7326584702814519	qt_front_autogen/timestamp	6e3a096ecaadc7a
+18	209	7326584702814519	qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
+18	209	7326584702814519	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/timestamp	6e3a096ecaadc7a
+18	209	7326584702814519	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
+234	4333	7326584744012395	CMakeFiles/qt_front.dir/mainwindow.cpp.obj	b292941de016a9c7
+4334	4917	7326584749815918	qt_front.exe	388a38ac392dfc62
+22	237	7326597617862730	qt_front_autogen/timestamp	6e3a096ecaadc7a
+22	237	7326597617862730	qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
+22	237	7326597617862730	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/timestamp	6e3a096ecaadc7a
+22	237	7326597617862730	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
+256	4871	7326597664192923	CMakeFiles/qt_front.dir/mainwindow.cpp.obj	b292941de016a9c7
+4871	5480	7326597670250630	qt_front.exe	388a38ac392dfc62
+13	252	7326599626031057	qt_front_autogen/timestamp	6e3a096ecaadc7a
+13	252	7326599626031057	qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
+13	252	7326599626031057	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/timestamp	6e3a096ecaadc7a
+13	252	7326599626031057	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
+274	4133	7326599664843438	CMakeFiles/qt_front.dir/mainwindow.cpp.obj	b292941de016a9c7
+4133	4616	7326599669635018	qt_front.exe	388a38ac392dfc62
+13	166	7326600696386320	qt_front_autogen/timestamp	6e3a096ecaadc7a
+13	166	7326600696386320	qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
+13	166	7326600696386320	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/timestamp	6e3a096ecaadc7a
+13	166	7326600696386320	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
+186	3778	7326600732478234	CMakeFiles/qt_front.dir/mainwindow.cpp.obj	b292941de016a9c7
+3779	4236	7326600737049555	qt_front.exe	388a38ac392dfc62
+11	222	7326602855701601	qt_front_autogen/timestamp	6e3a096ecaadc7a
+11	222	7326602855701601	qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
+11	222	7326602855701601	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/timestamp	6e3a096ecaadc7a
+11	222	7326602855701601	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
+247	4127	7326602894734311	CMakeFiles/qt_front.dir/mainwindow.cpp.obj	b292941de016a9c7
+4128	4616	7326602899609334	qt_front.exe	388a38ac392dfc62
+20	199	7326603930159959	qt_front_autogen/timestamp	6e3a096ecaadc7a
+20	199	7326603930159959	qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
+20	199	7326603930159959	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/timestamp	6e3a096ecaadc7a
+20	199	7326603930159959	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
+219	3483	7326603962999161	CMakeFiles/qt_front.dir/mainwindow.cpp.obj	b292941de016a9c7
+3483	3957	7326603967700331	qt_front.exe	388a38ac392dfc62
+7	178	7326610007570923	qt_front_autogen/timestamp	6e3a096ecaadc7a
+7	178	7326610007570923	qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
+7	178	7326610007570923	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/timestamp	6e3a096ecaadc7a
+7	178	7326610007570923	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
+196	4468	7326610050421245	CMakeFiles/qt_front.dir/mainwindow.cpp.obj	b292941de016a9c7
+4469	5200	7326610057712158	qt_front.exe	388a38ac392dfc62
+6	150	7326618377358111	qt_front_autogen/timestamp	6e3a096ecaadc7a
+6	150	7326618377358111	qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
+6	150	7326618377358111	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/timestamp	6e3a096ecaadc7a
+6	150	7326618377358111	C:/Users/alex/Desktop/Cours/2eme annee/projet IN204/IN204-messenger-frontend/build-qt_front-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/qt_front_autogen/mocs_compilation.cpp	6e3a096ecaadc7a
+165	2961	7326618405420743	CMakeFiles/qt_front.dir/mainwindow.cpp.obj	b292941de016a9c7
+2962	3434	7326618410122648	qt_front.exe	388a38ac392dfc62

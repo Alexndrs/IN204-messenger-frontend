@@ -8,7 +8,7 @@ Conversation::Conversation(){
 } // Ce constructeur n'est jamais utilisé en pratique.
 
 Conversation::Conversation(int idFirstPers, int idSecPers, QString convName, QVector<Message> messages)
-    :idFirstPers(idFirstPers), idSecPers(idSecPers), convName(convName), messages(messages){}
+    : idFirstPers(idFirstPers), idSecPers(idSecPers), convName(convName), messages(messages){}
 
 int Conversation::getConvSize(){
     return messages.size();

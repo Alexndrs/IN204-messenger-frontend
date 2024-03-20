@@ -6,7 +6,8 @@
 #include <QTcpSocket>
 #include <QByteArray>
 #include <QDataStream>
-#include <QThread>
+#include <algorithm>
+#include <QTimer>
 
 
 MainWindow::MainWindow(QWidget *parent, int idCli)
@@ -33,8 +34,27 @@ MainWindow::MainWindow(QWidget *parent, int idCli)
     //Connecter le signal clicked() du bouton ">" au slot sendMessage()
     connect(ui->sendMsgBtn, &QPushButton::clicked, this, &MainWindow::sendMessage);
 
+    //Connecter le signal clicked() du bouton "reloadBtn" au slot sendMessage()
+    connect(ui->reloadBtn, &QPushButton::clicked, this, &MainWindow::reloadCurrentConv);
 
-    //On creer une conversation 0 d'accueil entre ClientId et un identifiant -1 attribué à personne, on y ajoute les messages d'accueil
+
+
+
+    // Initialisation du timer
+    QTimer *timer = new QTimer(this);
+
+    // Connexion du signal timeout() du timer à la fonction reloadCurrentConv()
+    connect(timer, &QTimer::timeout, this, &MainWindow::reloadCurrentConv);
+
+    // Définition de l'intervalle du timer à 2000 millisecondes (2 secondes)
+    timer->start(2000);
+
+
+
+
+
+
+    //On creer une conversation initial d'accueil entre ClientId et un identifiant -1 attribué à personne, on y ajoute les messages d'accueil
     currentConv = Conversation(clientId, -1, "Home", QVector<Message>());
     Message WelcomeMessage1(currentConv.msgIdGenerator, -1,clientId, "Hello, bienvenu sur messenger++");
     Message WelcomeMessage2(currentConv.msgIdGenerator, -1,clientId, "Tu peux écrire des messages, si la conv est longue tu peux scroll");
@@ -46,9 +66,6 @@ MainWindow::MainWindow(QWidget *parent, int idCli)
     currentConv.addMsg(WelcomeMessage3);
     currentConv.addMsg(WelcomeMessage4);
     currentConv.addMsg(WelcomeMessage5);
-    buildConversation(currentConv);
-    openConversation(0);
-
 
     socket = new QTcpSocket(this);
     //socket->connectToHost("127.0.0.1", 8080); //remplacer par l'adress IP du serveur 147.250.231.188
@@ -78,32 +95,80 @@ MainWindow::~MainWindow()
 
 void MainWindow::onConnected() {
     qDebug() << "Connecté au serveur.";
+    buildConversation(currentConv);
+    openConversation(-1);
+
 }
 
+
+QList<QByteArray> splitMessages(QByteArray data){
+    // Délimite plusieurs messages :
+    // si data = {I:{1},A:{1}...{premier Message}}{I:{2},A:{1},...C:{deuxieme Message}}
+    // On renvoie [{I:{1},A:{1}...{premier Message}}, {I:{2},A:{1},...C:{deuxieme Message}] en remarquant que "}{ delimite deux messages"
+    QList<QByteArray> severalMessages;
+    QByteArray message;
+    for (int i = 0; i < data.size(); ++i) {
+        if (data.at(i) == '}' && i < data.size() - 1 && data.at(i + 1) == '{') {
+            severalMessages.append(message);
+            message.clear();
+        } else {
+            message.append(data.at(i));
+        }
+    }
+    if (!message.isEmpty()) {
+        severalMessages.append(message);
+    }
+    return severalMessages;
+}
+
+
+bool MainWindow::msgAlreadyInCurrentConv(Message msg){
+    for (int i=0; i < currentConv.getConvSize(); i++){
+        if (currentConv.messages[i].idMsg == msg.idMsg && currentConv.messages[i].idAuteur == msg.idAuteur && currentConv.messages[i].idAuteur == msg.idAuteur){
+            return true;
+        }
+    }
+    return false;
+}
 
 
 void MainWindow::onReadyRead() {
     QByteArray data = socket->readAll();
-    qDebug() << "Message du serveur onReadyRead:" << data;
-    qDebug() << "Translate brute en QString: " << QString(data);
-    Message msgRcv;
-    msgRcv.translateFromBuffer(data.data());
+    QList<QByteArray> severalMessages = splitMessages(data);
+    for (int i=0; i < severalMessages.size(); i++){
+        //qDebug() << "Message du serveur onReadyRead:" << severalMessages[i];
+        //qDebug() << "Translate brute en QString: " << QString(severalMessages[i]);
 
-    qDebug() << "I:" << msgRcv.idMsg << "|  A:" << msgRcv.idAuteur << "|  D:" << msgRcv.idDestinataire << "|  C:" << msgRcv.contenu << "| Date:" <<msgRcv.currentDate << "| sec:" << msgRcv.sec;
 
-    if (msgRcv.idDestinataire == clientId){
+        Message msgRcv;
+        msgRcv.translateFromBuffer(severalMessages[i].data());
 
+        qDebug() << "I:" << msgRcv.idMsg << "|  A:" << msgRcv.idAuteur << "|  D:" << msgRcv.idDestinataire << "|  C:" << msgRcv.contenu << "| Date:" <<msgRcv.currentDate << "| sec:" << msgRcv.sec;
+
+
+        if (msgRcv.idAuteur == clientId &&  !msgAlreadyInCurrentConv(msgRcv)){
+            qDebug() << "Un message envoyé";
+            for (int i=0; i<conversationList.size(); i++){
+                if (conversationList[i].idSecPers == msgRcv.idDestinataire){
+                    conversationList[i].addMsg(msgRcv);
+                }
+            }
+        }
+        if(msgRcv.idDestinataire == clientId && !msgAlreadyInCurrentConv(msgRcv)){
+            qDebug() << "Un message reçu";
+
+
+            for (int i=0; i<conversationList.size(); i++){
+                if (conversationList[i].idSecPers == msgRcv.idAuteur){
+                    conversationList[i].addMsg(msgRcv);
+                }
+            }
+            if (msgRcv.idAuteur == currentConv.idSecPers){
+                displayMsg(msgRcv);
+                currentConv.addMsg(msgRcv);
+            }
+        }
     }
-    // Créer un flux de données sur le tableau de bytes reçus
-    //QDataStream stream(data);
-    //stream.setByteOrder(QDataStream::LittleEndian); // Choisir l'endianness appropriée
-
-    //stream >> bufferRecv;
-
-    //qDebug() << "Identifiant du client (entier) : " << QString::number(clientId);
-
-    //qDebug() << "appel de onReadyRead";
-
 }
 
 
@@ -115,7 +180,6 @@ Conversation MainWindow::getCurrentConv()
 
 
 void MainWindow::createNewConversation(){
-    //Conversation conversation(1, 1001, 1002, "Conversation 1", QVector<Message>());
 
     // Rendre le QLineEdit visible et activé
     ui->addConvName->setVisible(true);
@@ -133,6 +197,14 @@ void MainWindow::createNewConversation(){
             if (ok) {
                 // La conversion en entier a réussi
                 qDebug() << "ID du destinataire : " << idDestinataire;
+                //pour savoir si il y avait deja des messages dans la DB entre ces utilisateur : on envoie un buffer (clientId, idDestinataire) au serveur.
+
+                int bufferSize = snprintf(nullptr, 0, "(%d,%d)", clientId, idDestinataire) + 1;
+                char* buffer = new char[bufferSize];
+                snprintf(buffer, bufferSize, "(%d,%d)", clientId, idDestinataire);
+                qDebug() << "buffer_a_send" << buffer;
+                socket->write(buffer, bufferSize);
+                delete[] buffer;
 
                 Conversation conversation(clientId, idDestinataire, conversationName, QVector<Message>());
                 buildConversation(conversation);
@@ -163,18 +235,20 @@ void MainWindow::buildConversation(Conversation conversation){
 
     conversationList.append(conversation);
 
+
     //pour savoir si il y avait deja des messages dans la DB entre clientId et le destinataire : on envoie un buffer (clientId, idDestinataire) au serveur.
     int bufferSize = snprintf(nullptr, 0, "(%d,%d)", clientId, conversation.idSecPers) + 1;
     char* buffer = new char[bufferSize];
     snprintf(buffer, bufferSize, "(%d,%d)", clientId, conversation.idSecPers);
-    qDebug() << "buffer_send" << buffer;
+    //qDebug() << "buffer_send" << buffer;
     socket->write(buffer, bufferSize);
     delete[] buffer;
     //On aura recevra les precedents messages si il y en a dans onReadyRead
 
 
+
     QPushButton *conversationButton = new QPushButton(conversation.getName(), this);
-    conversationButton->setProperty("idDestinataire", conversation.idSecPers);
+    //conversationButton->setProperty("conversationId", conversation.idSecPers);
     connect(conversationButton, &QPushButton::clicked, this, [=](){
         closeConv();
         openConversation(conversation.idSecPers);
@@ -216,15 +290,31 @@ void MainWindow::closeConv(){
 }
 
 
+bool compareMessages(const Message &msg1, const Message &msg2) {
+    // Comparaison par date
+    if (msg1.currentDate != msg2.currentDate) {
+        return msg1.currentDate < msg2.currentDate;
+    }
+    // Si les dates sont égales, comparaison par seconde dans la journée
+    return msg1.sec < msg2.sec;
+}
+
+QVector<Message> sortMessages(const QVector<Message> &messages) {
+    QVector<Message> sortedMessages = messages;
+    // Tri des messages en utilisant la fonction de comparaison personnalisée
+    std::sort(sortedMessages.begin(), sortedMessages.end(), compareMessages);
+    return sortedMessages;
+
+}
+
+
 void MainWindow::openConversation(int idDestinataire){
 
 
-    qDebug() << "Tailles des conversations :";
+    //qDebug() << "Tailles des conversations :";
     //for (const Conversation &conversation : conversationList) {
     //    qDebug() << "Conversation" << conversation.idConv << ": " << conversation.messages.size();
     //}
-
-
 
 
     //load la conv
@@ -234,9 +324,8 @@ void MainWindow::openConversation(int idDestinataire){
         }
     }
 
-    //load conv messages
-    for (int i = 0; i < currentConv.getConvSize(); i++) {
-        Message message = currentConv.messages[i];
+    QVector<Message> sortedMessages = sortMessages(currentConv.messages);
+    for (const Message &message : sortedMessages) {
         displayMsg(message);
     }
 
@@ -284,31 +373,32 @@ void MainWindow::sendMessage() {
     socket->write(buffer, bufferSize);
     delete[] buffer;
 
-    // Pause de 3 secondes
-    //QThread::sleep(3);
-
-    //char* newBuffer = otherTestMsg.translateToBuffer(bufferSize);
-    //qDebug() << "translateToBuffer" << newBuffer;
-    //socket->write(newBuffer, bufferSize);
-    //delete[] newBuffer;
-
 
     currentConv.addMsg(newMsg);
+    qDebug() << currentConv.getConvSize();
     for (int i=0; i<conversationList.size(); i++){
         if (conversationList[i].idSecPers == currentConv.idSecPers){
+            qDebug() << "ajout d'un msg";
             conversationList[i] = currentConv;
         }
     }
     displayMsg(newMsg);
 
 
-    qDebug() << "Tailles des conversations :";
-    //for (const Conversation &conversation : conversationList) {
-    //    qDebug() << "Conversation" << conversation.idConv << ": " << conversation.messages.size();
-    //}
-
-    qDebug() << "currentConvSize" << currentConv.messages.size();
-
     // Effacer le texte du QLineEdit après l'avoir envoyé
     ui->MsgEdit->clear();
 }
+
+void MainWindow::reloadCurrentConv(){
+
+    //On reload la DB en envoyant (clientId, currentConv.idSecPers)
+    int bufferSize = snprintf(nullptr, 0, "(%d,%d)", clientId, currentConv.idSecPers) + 1;
+    char* buffer = new char[bufferSize];
+    snprintf(buffer, bufferSize, "(%d,%d)", clientId, currentConv.idSecPers);
+    //qDebug() << "buffer_send" << buffer;
+    socket->write(buffer, bufferSize);
+    delete[] buffer;
+    //On aura recevra les messages si il y en a dans onReadyRead
+}
+
+

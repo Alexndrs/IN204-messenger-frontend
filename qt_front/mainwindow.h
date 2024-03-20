@@ -19,6 +19,7 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
+
 private:
     QTcpSocket *socket;
     int clientId;
@@ -29,7 +30,7 @@ public:
     MainWindow(QWidget *parent = nullptr, int idCli=1);
     ~MainWindow();
     Conversation getCurrentConv();
-
+    bool msgAlreadyInCurrentConv(Message msg);
 
 public slots:
     //public slots permet d'appeler ces methodes dans la fonction connect de Qt
@@ -41,6 +42,7 @@ public slots:
     void displayMsg(Message message);
     void closeConv();
     void sendMessage();
+    void reloadCurrentConv();
 
 private:
     Ui::MainWindow *ui;
